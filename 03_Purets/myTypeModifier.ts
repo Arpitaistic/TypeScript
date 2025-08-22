@@ -1,4 +1,5 @@
 class helloNewUser {
+    private _courseCount: 1
     name: string;
     public email: string;
     private readonly city: string = "Bengaluru"; //Readonly property, cannot be changed
@@ -6,5 +7,17 @@ class helloNewUser {
 {
     this.name = name;
     this.email = email;
-}}
+}
+get getAppleEmail():string {
+  return `apple${this.email}`
+}
+get courseCount(): number{
+    return this._courseCount
+}
+set courseCount (courseNum){ //There is no return type for setter!
+    if (courseNum <= 1){
+        throw new Error("Course count should be more than 1")
+    }
+}
+}
 const sneha = new helloNewUser ("sneha", "sneha@gmail.com")
